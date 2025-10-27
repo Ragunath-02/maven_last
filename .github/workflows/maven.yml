@@ -70,7 +70,7 @@ jobs:
         run: ls -la apache-maven/target
 
       - name: Upload Maven distributions
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: maven-distributions
           path: |
@@ -166,7 +166,7 @@ jobs:
         run: mvn site -e -B -V -Preporting
 
       - name: Upload test artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: failure()
         with:
           name: ${{ github.run_number }}-full-build-artifact-${{ runner.os }}-${{ matrix.java }}
@@ -245,7 +245,7 @@ jobs:
         run: mvn install -e -B -V -Prun-its,mimir
 
       - name: Upload test artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: failure()
         with:
           name: ${{ github.run_number }}-integration-test-artifact-${{ runner.os }}-${{ matrix.java }}
